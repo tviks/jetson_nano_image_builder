@@ -11,9 +11,9 @@ wget http://cdimage.ubuntu.com/ubuntu-base/releases/18.04/release/ubuntu-base-18
 
 tar xf jetson-210_linux_r32.6.1_aarch64.tbz2
 
-sudo -E mv ubuntu-base-18.04.5-base-arm64.tar.gz ~/Linux_for_Tegra/rootfs/
+sudo -E mv ubuntu-base-18.04.5-base-arm64.tar.gz ~/jetson_nano_image_builder/Linux_for_Tegra/rootfs/
 
-cd ~/Linux_for_Tegra/
+cd ~/jetson_nano_image_builder/Linux_for_Tegra/
 
 
 sed -i -e '/mknod -m 444/d' nv_tegra/nv-apply-debs.sh
@@ -25,14 +25,16 @@ sudo tar xpf ubuntu-base-18.04.5-base-arm64.tar.gz
 
 rm -rf ubuntu-base-18.04.5-base-arm64.tar.gz
 
+sudo cp ~/jetson_nano_image_builder/rootfs.sh ~/jetson_nano_image_builder/Linux_for_Tegra/rootfs/
+
 sudo mount --bind /dev dev/
 
 sudo cp /usr/bin/qemu-aarch64-static usr/bin/
 
-#sudo chmod 777 Linux_for_Tegra/rootfs/test.sh
-#sudo chmod +x Linux_for_Tegra/rootfs/test.sh
+sudo chmod 777 test.sh
+sudo chmod +x test.sh
 
-sudo chroot . bin/bash -c "./test.sh"
+sudo chroot . bin/bash -c "./rootfs.sh"
 
 cd ~/Linux_for_Tegra/
 
