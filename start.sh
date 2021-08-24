@@ -32,7 +32,7 @@ sudo tar xpf ubuntu-base-18.04.5-base-arm64.tar.gz
 
 rm -rf ubuntu-base-18.04.5-base-arm64.tar.gz
 
-sudo cp ~/jetson_nano_image_builder/rootfs.sh ~/jetson_nano_image_builder/Linux_for_Tegra/rootfs/
+sudo cp $PWD/rootfs.sh $PWD/Linux_for_Tegra/rootfs/
 
 sudo mount --bind /dev dev/
 
