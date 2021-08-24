@@ -57,3 +57,5 @@ sudo chroot . bin/bash -c "apt --fix-broken install -y && exit"
 
 sudo ./apply_binaries.sh
 
+sudo ./$WORK_DIR/Linux_for_Tegra/tools/jetson-disk-image-creator.sh -o jetson.img -b jetson-nano -r 300
+
