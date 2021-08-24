@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-pwd 
+echo $PWD
 
 sudo apt-get update && apt-get upgrade -y
 
