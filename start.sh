@@ -12,9 +12,9 @@ sudo apt-get update && apt-get upgrade -y
 sudo apt install sudo git nano htop wget qemu-user-static -y
 
 
-wget https://developer.nvidia.com/embedded/l4t/r32_release_v6.1/t210/jetson-210_linux_r32.6.1_aarch64.tbz2
+wget -N https://developer.nvidia.com/embedded/l4t/r32_release_v6.1/t210/jetson-210_linux_r32.6.1_aarch64.tbz2
 
-wget http://cdimage.ubuntu.com/ubuntu-base/releases/18.04/release/ubuntu-base-18.04.5-base-arm64.tar.gz
+wget -N http://cdimage.ubuntu.com/ubuntu-base/releases/18.04/release/ubuntu-base-18.04.5-base-arm64.tar.gz
 
 tar xf jetson-210_linux_r32.6.1_aarch64.tbz2
 
@@ -26,7 +26,7 @@ cd $PWD/Linux_for_Tegra/
 sed -i -e '/mknod -m 444/d' nv_tegra/nv-apply-debs.sh
 
 
-cd ~/jetson_nano_image_builder/Linux_for_Tegra/rootfs/
+cd $PWD/Linux_for_Tegra/rootfs/
 
 sudo tar xpf ubuntu-base-18.04.5-base-arm64.tar.gz
 
