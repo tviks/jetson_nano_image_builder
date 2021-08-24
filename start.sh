@@ -11,7 +11,7 @@ WORK_DIR=$PWD
 
 sudo apt-get update && apt-get upgrade -y
 
-sudo apt install sudo git nano htop wget qemu-user-static -y
+sudo apt install sudo git nano htop wget qemu-user-static libxml2-utils -y
 
 
 wget -nc https://developer.nvidia.com/embedded/l4t/r32_release_v6.1/t210/jetson-210_linux_r32.6.1_aarch64.tbz2
@@ -47,15 +47,20 @@ sudo chroot . bin/bash -c "./rootfs.sh"
 
 cd $WORK_DIR/Linux_for_Tegra/
 
+cd $WORK_DIR/Linux_for_Tegra/
 sudo ./apply_binaries.sh
 
+cd $WORK_DIR/Linux_for_Tegra/rootfs/
+sudo chroot $WORK_DIR/Linux_for_Tegra/rootfs/ bin/bash -c "apt --fix-broken install -y && exit"
+
+cd $WORK_DIR/Linux_for_Tegra/
+sudo ./apply_binaries.sh
+
+cd $WORK_DIR/Linux_for_Tegra/rootfs/
 sudo chroot . bin/bash -c "apt --fix-broken install -y && exit"
 
+cd $WORK_DIR/Linux_for_Tegra/
 sudo ./apply_binaries.sh
 
-sudo chroot . bin/bash -c "apt --fix-broken install -y && exit"
-
-sudo ./apply_binaries.sh
-
-sudo ./$WORK_DIR/Linux_for_Tegra/tools/jetson-disk-image-creator.sh -o jetson.img -b jetson-nano -r 300
+sudo .$WORK_DIR/Linux_for_Tegra/tools/jetson-disk-image-creator.sh -o jetson.img -b jetson-nano -r 300
 
