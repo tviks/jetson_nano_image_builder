@@ -18,9 +18,9 @@ wget http://cdimage.ubuntu.com/ubuntu-base/releases/18.04/release/ubuntu-base-18
 
 tar xf jetson-210_linux_r32.6.1_aarch64.tbz2
 
-sudo -E mv ubuntu-base-18.04.5-base-arm64.tar.gz ~/jetson_nano_image_builder/Linux_for_Tegra/rootfs/
+sudo -E mv ubuntu-base-18.04.5-base-arm64.tar.gz $PWD/Linux_for_Tegra/rootfs/
 
-cd ~/jetson_nano_image_builder/Linux_for_Tegra/
+cd $PWD/Linux_for_Tegra/
 
 
 sed -i -e '/mknod -m 444/d' nv_tegra/nv-apply-debs.sh
