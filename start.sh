@@ -26,7 +26,7 @@ cd $PWD/Linux_for_Tegra/
 sed -i -e '/mknod -m 444/d' nv_tegra/nv-apply-debs.sh
 
 
-cd $PWD/Linux_for_Tegra/rootfs/
+cd $PWD/rootfs/
 
 sudo tar xpf ubuntu-base-18.04.5-base-arm64.tar.gz
 
