@@ -1,5 +1,12 @@
 #! /bin/bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+pwd 
+
 sudo apt-get update && apt-get upgrade -y
 
 sudo apt install sudo git nano htop wget qemu-user-static -y
@@ -19,7 +26,7 @@ cd ~/jetson_nano_image_builder/Linux_for_Tegra/
 sed -i -e '/mknod -m 444/d' nv_tegra/nv-apply-debs.sh
 
 
-cd ~/Linux_for_Tegra/rootfs/
+cd ~/jetson_nano_image_builder/Linux_for_Tegra/rootfs/
 
 sudo tar xpf ubuntu-base-18.04.5-base-arm64.tar.gz
 
