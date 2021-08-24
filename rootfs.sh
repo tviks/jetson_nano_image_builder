@@ -12,5 +12,6 @@ apt --fix-broken install
 
 apt-get install sudo nano -y
 
+exit
 
 
